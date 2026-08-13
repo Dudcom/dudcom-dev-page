@@ -56,7 +56,6 @@ import SunIcon from "@/assets/icons/sun.svg"
     localStorage.theme = theme
   }
 
-  document.addEventListener("click", (event) => {
-    if ((event.target as Element).closest?.("#theme-toggle")) toggleTheme()
-  })
+  const button = document.getElementById("theme-toggle")
+  if (button) button.onclick = toggleTheme
 </script>

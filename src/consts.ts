@@ -1,27 +1,31 @@
 import type { SvgComponent } from "astro/types"
 import Email from "@/assets/icons/email.svg"
 import GitHub from "@/assets/icons/github.svg"
-import RSS from "@/assets/icons/rss.svg"
+import Link from "@/assets/icons/link.svg"
 import Twitter from "@/assets/icons/twitter.svg"
 
 export const SITE = {
-  title: "enscribe",
-  description: "A design engineer based in Los Angeles.",
+  title: "dudcom.dev",
+  description: "Dudcom's personal website.",
   locale: "en-US",
   dir: "ltr",
-  defaultPageImage: "/static/twitter-card.png",
-  defaultPostImage: "/static/twitter-card.png",
+  defaultPageImage: "/static/opengraph-image.png",
+  defaultPostImage: "/static/1200x630.png",
 } as const
 
 export const NAVIGATION = [
-  { href: "/blog", label: "Blog" },
-  { href: "/work", label: "Work" },
-  { href: "/about", label: "About" },
+  { href: "/blog", label: "Tech-Blog" },
+  { href: "/thoughts", label: "Thoughts" },
+  { href: "/misc-blog", label: "Misc-Blog" },
 ]
 
 export const SOCIALS: { href: string; label: string; icon: SvgComponent }[] = [
-  { href: "https://github.com/jktrn", label: "GitHub", icon: GitHub },
-  { href: "https://twitter.com/enscribe", label: "Twitter", icon: Twitter },
-  { href: "mailto:jason@enscribe.dev", label: "Email", icon: Email },
-  { href: "/rss.xml", label: "RSS", icon: RSS },
+  { href: "https://github.com/Dudcom", label: "GitHub", icon: GitHub },
+  { href: "https://x.com/dudcom3", label: "Twitter", icon: Twitter },
+  {
+    href: "https://www.linkedin.com/in/tanush-madanbhavi/",
+    label: "LinkedIn",
+    icon: Link,
+  },
+  { href: "mailto:dudcom@spl.team", label: "Email", icon: Email },
 ]

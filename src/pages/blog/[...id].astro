@@ -1,21 +1,12 @@
 ---
 import MetaPost from "@/components/MetaPost.astro"
 import PostActions from "@/components/PostActions.astro"
-import ReaderModeToggle from "@/components/ReaderModeToggle.astro"
+import ScrollToTop from "@/components/ScrollToTop.astro"
 import SeriesReader from "@/components/SeriesReader.astro"
 import TableOfContents from "@/components/TableOfContents.astro"
-import ThemedBannerImage from "@/components/ThemedBannerImage.astro"
-import FormattedDate from "@/components/FormattedDate.astro"
 import Layout from "@/layouts/Layout.astro"
-import { bannerRaster, themedBanner } from "@/lib/assets/banner"
-import {
-  enrichHeadings,
-  entryInline,
-  getPosts,
-  getSubposts,
-  pageTitle,
-} from "@/lib/content"
-import { isSubpost, subpostSlug } from "@/lib/utils"
+import { getPosts, getSubposts, pageTitle } from "@/lib/content"
+import { formatDate, isSubpost, subpostSlug } from "@/lib/utils"
 import { Image } from "astro:assets"
 import { getEntries, render, type CollectionEntry } from "astro:content"
 
@@ -39,37 +30,30 @@ type Props = {
 }
 
 const { post, chain, prev, next } = Astro.props
+if (post.data.redirect) return Astro.redirect(post.data.redirect)
 const [parent] = chain
 const rendered = await Promise.all(
   chain.map(async (entry) => ({
     entry,
     ...(await render(entry)),
     authors: await getEntries(entry.data.authors),
-    banner: themedBanner(entry),
-    raster: bannerRaster(entry),
   })),
 )
 
 const sections = rendered.map(({ entry, headings }, i) => ({
   id: i === 0 ? undefined : subpostSlug(entry.id),
-  href: `/blog/${entry.id}`,
-  label: entryInline(entry, "title"),
+  label: entry.data.title,
   open: entry.id === post.id,
-  headings: enrichHeadings(
-    headings.filter(
-      ({ depth, text }) => depth >= 2 && depth <= 4 && text.trim(),
-    ),
-    entry.rendered?.metadata?.frontmatter,
+  headings: headings.filter(
+    ({ depth, text }) => depth >= 2 && depth <= 4 && text.trim(),
   ),
 }))
 const hasToc =
   sections.length > 1 || sections.some(({ headings }) => headings.length > 0)
 
-const crumbs = [
-  { label: entryInline(parent, "title"), href: `/blog/${parent.id}` },
-]
+const crumbs = [{ label: parent.data.title, href: `/blog/${parent.id}` }]
 if (isSubpost(post.id)) {
-  crumbs.push({ label: entryInline(post, "title"), href: `/blog/${post.id}` })
+  crumbs.push({ label: post.data.title, href: `/blog/${post.id}` })
 }
 ---
 
@@ -82,32 +66,21 @@ if (isSubpost(post.id)) {
   {hasToc && (
       <TableOfContents
         slot="toc"
-        title={entryInline(parent, "title")}
+        title={parent.data.title}
         sections={sections}
       />
     )}
-  <PostActions
-    slot="actions"
-    prev={prev && {
-      href: `/blog/${prev.id}`,
-      title: entryInline(prev, "title").text,
-    }}
-    next={next && {
-      href: `/blog/${next.id}`,
-      title: entryInline(next, "title").text,
-    }}
-  />
-  <ReaderModeToggle mobile />
-  {rendered.map(({ entry, Content, authors, banner, raster }, i) => (
+  <PostActions slot="actions" prev={prev} next={next} />
+  <ScrollToTop floating />
+  {rendered.map(({ entry, Content, authors }, i) => (
       <article
         id={i === 0 ? undefined : subpostSlug(entry.id)}
         data-url={`/blog/${entry.id}`}
         data-title={pageTitle(entry.data.title)}
         data-embedded={i > 0 || undefined}
-        data-pagefind-body={entry.id === post.id ? "" : undefined}
       >
-        <header data-linebreak-root>
-          <h1><Fragment set:html={entryInline(entry, "title").html} /></h1>
+        <header>
+          <h1>{entry.data.title}</h1>
           <post-meta>
             {authors.length > 0 && (
               <post-authors>
@@ -116,19 +89,21 @@ if (isSubpost(post.id)) {
                     <img
                       src={author.data.avatar}
                       alt={author.data.name}
-                      width="18"
+                      width="10"
                       height="18"
                     />
                   ))}
                 </author-avatars>
                 <author-names>
                   {authors.map((author, j) => (
-                    <>{j > 0 && ", "}<a href={`/authors/${author.id}`}>{author.data.name}</a></>
+                    <>{j > 0 && ", "}<a href="/">{author.data.name}</a></>
                   ))}
                 </author-names>
               </post-authors>
             )}
-            <FormattedDate date={entry.data.date} />
+            <time datetime={entry.data.date.toISOString()}
+              >{formatDate(entry.data.date)}</time
+            >
             {entry.data.tags && (
               <post-tags>
                 {entry.data.tags.map((tag) => (
@@ -137,23 +112,9 @@ if (isSubpost(post.id)) {
               </post-tags>
             )}
           </post-meta>
-          <p>
-            <Fragment set:html={entryInline(entry, "description").html} />
-          </p>
+          <p>{entry.data.description}</p>
         </header>
-        {banner ? (
-          <post-banner>
-            <Fragment set:html={banner.light} />
-            <Fragment set:html={banner.dark} />
-          </post-banner>
-        ) : raster ? (
-          <post-banner>
-            <ThemedBannerImage
-              raster={raster}
-              priority={entry.id === post.id}
-            />
-          </post-banner>
-        ) : entry.data.image && (
+        {entry.data.image && (
           <post-banner>
             <Image
               src={entry.data.image}
@@ -164,7 +125,7 @@ if (isSubpost(post.id)) {
             />
           </post-banner>
         )}
-        <prose-content data-linebreak-root>
+        <prose-content>
           <Content />
         </prose-content>
       </article>
@@ -224,7 +185,7 @@ if (isSubpost(post.id)) {
         }
       }
 
-      post-authors ~ :global(time)::before {
+      post-authors ~ time::before {
         content: "·";
         margin-inline-end: var(--space-3xs);
       }
@@ -265,9 +226,7 @@ if (isSubpost(post.id)) {
     display: block;
     margin-block-end: var(--space-m);
 
-    :global(img),
-    :global(svg) {
-      display: block;
+    :global(img) {
       inline-size: 100%;
       block-size: auto;
     }

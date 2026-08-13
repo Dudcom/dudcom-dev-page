@@ -1,42 +1,66 @@
 ---
-import ArrowLineUp from "@/assets/icons/arrow-line-up.svg"
+import ArrowUp from "@/assets/icons/arrow-up.svg"
+
+type Props = { floating?: boolean }
+
+const { floating } = Astro.props
 ---
 
-<button data-icon-button data-scroll-top aria-label="Scroll to top" disabled>
-  <ArrowLineUp aria-hidden="true" />
+<button
+  data-icon-button
+  data-scroll-top
+  data-floating={floating || undefined}
+  aria-label="Scroll to top"
+>
+  <ArrowUp />
 </button>
 
 <style>
   button {
     color: var(--foreground);
+    visibility: hidden;
 
-    @media (width < 48rem) {
+    &[data-visible] {
+      visibility: visible;
+    }
+  }
+
+  button:not([data-floating]) {
+    @media (width < 64rem) {
       display: none;
     }
+  }
 
-    &:disabled {
-      opacity: 0.35;
-      cursor: default;
+  button[data-floating] {
+    position: fixed;
+    inset-block-end: var(--grid-gutter);
+    inset-inline-end: var(--grid-gutter);
+    z-index: 10;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: color-mix(in oklab, var(--background) 90%, transparent);
+    backdrop-filter: blur(var(--blur-sm));
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-md);
 
-      &:hover {
-        background-color: transparent;
-      }
+    @media (width >= 64rem) {
+      display: none;
     }
   }
 </style>
 
 <script>
+  const buttons = [
+    ...document.querySelectorAll<HTMLElement>("[data-scroll-top]"),
+  ]
+
   const update = () => {
-    const enabled = scrollY > innerHeight * 0.5
-    for (const button of document.querySelectorAll<HTMLButtonElement>(
-      "[data-scroll-top]",
-    )) {
-      button.disabled = !enabled
-    }
+    const past = scrollY > innerHeight * 0.5
+    for (const button of buttons) button.toggleAttribute("data-visible", past)
   }
 
   addEventListener("scroll", update, { passive: true })
-  document.addEventListener("astro:page-load", update)
+  update()
 
   document.addEventListener("click", (event) => {
     if ((event.target as Element).closest("[data-scroll-top]"))

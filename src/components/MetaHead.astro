@@ -1,8 +1,6 @@
 ---
-import { ClientRouter } from "astro:transitions"
-import sansWoff2 from "@/assets/fonts/MDLorien-Regular.woff2?url"
-import sansItalicWoff2 from "@/assets/fonts/MDLorien-Italic.woff2?url"
-import sansScWoff2 from "@/assets/fonts/MDLorienSC-Regular.woff2?url"
+import sansWoff2 from "@/assets/fonts/IBMPlexSans-VariableFont_wdth,wght.woff2?url"
+import sansItalicWoff2 from "@/assets/fonts/IBMPlexSans-Italic-VariableFont_wdth,wght.woff2?url"
 import { SITE } from "@/consts"
 ---
 
@@ -26,35 +24,20 @@ import { SITE } from "@/consts"
 
   <meta
     name="theme-color"
-    content="#11100e"
+    content="#05070b"
     media="(prefers-color-scheme: dark)"
   >
   <meta
     name="theme-color"
-    content="#faf4ed"
+    content="#ffffff"
     media="(prefers-color-scheme: light)"
   >
 
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" href="/static/dudcom-d.png" sizes="128x128">
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
 
   <link rel="sitemap" href="/sitemap-index.xml">
-  <link
-    rel="alternate"
-    type="application/rss+xml"
-    title={SITE.title}
-    href={new URL("rss.xml", Astro.site)}
-  >
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@400;500;600&display=swap"
-  >
 
   <link rel="preload" href={sansWoff2} as="font" type="font/woff2" crossorigin>
   <link
@@ -64,74 +47,12 @@ import { SITE } from "@/consts"
     type="font/woff2"
     crossorigin
   >
-  <link
-    rel="preload"
-    href={sansScWoff2}
-    as="font"
-    type="font/woff2"
-    crossorigin
-  >
-  <script is:inline>
-    const applyPreferences = (root) => {
-      root.dataset.js = ""
-      let theme
-      let textJustification
-      let readerMode
-      try {
-        theme = localStorage.theme
-        textJustification = localStorage.textJustification
-        readerMode = localStorage.readerMode
-      } catch {}
-      if (theme === "light" || theme === "dark") root.dataset.theme = theme
-      root.dataset.textJustification =
-        textJustification === "ragged" ? "ragged" : "justified"
-      if (readerMode === "on") root.dataset.readerMode = ""
-      else delete root.dataset.readerMode
-    }
-    applyPreferences(document.documentElement)
-    document.addEventListener("astro:before-swap", (event) => {
-      applyPreferences(event.newDocument.documentElement)
-    })
-  </script>
 
   <script is:inline>
-    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)")
-
-    document.addEventListener(
-      "load",
-      (event) => {
-        const img = event.target
-        if (!(img instanceof HTMLImageElement) || img.loading !== "lazy") return
-        if (!img.hasAttribute("data-loaded")) {
-          img.setAttribute("data-loaded", "")
-          if (!reducedMotion.matches) {
-            img.animate(
-              { opacity: [0, 1] },
-              { duration: 900, easing: "cubic-bezier(0.22, 1, 0.36, 1)" },
-            )
-          }
-        }
-      },
-      true,
-    )
-    document.addEventListener(
-      "error",
-      (event) => {
-        const img = event.target
-        if (img instanceof HTMLImageElement && img.loading === "lazy")
-          img.setAttribute("data-loaded", "")
-      },
-      true,
-    )
-    document.addEventListener("astro:page-load", () => {
-      for (const img of document.querySelectorAll('img[loading="lazy"]')) {
-        if (img.complete && !img.hasAttribute("data-loaded")) {
-          img.setAttribute("data-loaded", "")
-        }
-      }
-    })
+    const theme = localStorage.theme
+    if (theme === "light" || theme === "dark")
+      document.documentElement.dataset.theme = theme
   </script>
 
-  <ClientRouter />
   <slot />
 </head>

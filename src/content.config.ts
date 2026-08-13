@@ -31,32 +31,27 @@ const blog = defineCollection({
       tags: z.array(z.string()).optional(),
       authors: z.array(reference("authors")),
       image: image().optional(),
-      banner: z.object({ light: z.string(), dark: z.string() }).optional(),
+      redirect: z.url().optional(),
       draft: z.boolean().optional(),
     }),
 })
 
-const projects = defineCollection({
+const thoughts = defineCollection({
   loader: glob({
     pattern: "**/[^_]*.md",
-    base: "./src/content/projects",
+    base: "./src/content/thoughts",
   }),
   schema: ({ image }) =>
     z.object({
-      name: z.string(),
+      title: z.string(),
       description: z.string(),
-      link: z.url(),
-      order: z.number().optional(),
+      date: z.coerce.date(),
+      authors: z.array(reference("authors")),
+      tags: z.array(z.string()).optional(),
       image: image().optional(),
-      thumbnail: z
-        .object({
-          light: image(),
-          dark: image(),
-        })
-        .optional(),
-      startDate: z.coerce.date().optional(),
-      endDate: z.coerce.date().optional(),
+      redirect: z.url().optional(),
+      draft: z.boolean().optional(),
     }),
 })
 
-export const collections = { blog, authors, projects }
+export const collections = { blog, authors, thoughts }

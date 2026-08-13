@@ -12,12 +12,11 @@ prose-content {
   }
 
   :is(h2, h3, h4, h5, h6) {
-    .heading-anchor {
+    [data-heading-anchor] {
       margin-inline-start: 0.5ch;
       color: var(--muted-foreground);
       text-decoration-line: none;
       opacity: 0;
-      transition: opacity 0.2s ease;
 
       &::before {
         content: "#";
@@ -28,12 +27,12 @@ prose-content {
       }
     }
 
-    &:is(:hover, :target) .heading-anchor {
+    &:is(:hover, :target) [data-heading-anchor] {
       opacity: 1;
     }
 
     @media (hover: none) {
-      .heading-anchor {
+      [data-heading-anchor] {
         opacity: 1;
       }
     }

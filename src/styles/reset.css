@@ -46,10 +46,13 @@ a {
 
 b,
 strong {
-  font-weight: inherit;
+  font-weight: bolder;
 }
 
-:where(code, kbd, samp, pre) {
+code,
+kbd,
+samp,
+pre {
   font-size: 1em;
 }
 

@@ -1,6 +1,6 @@
 {
-  "name": "enscribe.dev",
-  "short_name": "enscribe.dev",
+  "name": "dudcom.dev",
+  "short_name": "dudcom.dev",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#faf4ed",
-  "background_color": "#faf4ed",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "display": "standalone"
 }

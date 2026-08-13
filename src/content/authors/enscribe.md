@@ -1,11 +1,10 @@
 ---
-name: "enscribe"
-pronouns: "he/him"
-avatar: "/static/avatar.webp"
-bio: "d(-_-)b"
-mail: "jason@enscribe.dev"
+name: "Dudcom"
+avatar: "/static/octopus.jpg"
+bio: "Go check out spl.team & vri.group"
+mail: "dudcom@spl.team"
 socials:
-  website: "https://enscribe.dev"
-  twitter: "https://twitter.com/enscribe"
-  github: "https://github.com/jktrn"
+  twitter: "https://x.com/dudcom3"
+  github: "https://github.com/Dudcom"
+  linkedin: "https://www.linkedin.com/in/tanush-madanbhavi/"
 ---

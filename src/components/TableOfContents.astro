@@ -1,74 +1,60 @@
 ---
 import ChevronIcon from "@/assets/icons/callouts/alt-arrow-down.svg"
-import { asInline, type InlineLabel, type TocHeading } from "@/lib/content"
+import type { MarkdownHeading } from "astro"
 
 type Section = {
   id?: string
-  href?: string
-  label: InlineLabel
+  label: string
   open?: boolean
-  headings: TocHeading[]
+  headings: MarkdownHeading[]
 }
-type Props = { title: InlineLabel; sections: Section[] }
+type Props = { title: string; sections: Section[] }
 
-const { title: titleLabel, sections } = Astro.props
-const title = asInline(titleLabel)
+const { title, sections } = Astro.props
 ---
 
 <nav aria-label="Table of contents">
-  <toc-title aria-hidden="true"
-    ><span><Fragment set:html={title.html} /></span></toc-title
-  >
+  <toc-title aria-hidden="true"><span>{title}</span></toc-title>
   <label data-bar>
     <input type="checkbox" aria-label="Toggle table of contents">
     <svg viewBox="0 0 16 16" aria-hidden="true">
       <circle cx="8" cy="8" r="6.5" />
       <circle cx="8" cy="8" r="6.5" transform="rotate(-90 8 8)" />
     </svg>
-    <toc-current><Fragment set:html={title.html} /></toc-current>
+    <toc-current>{title}</toc-current>
     <ChevronIcon aria-hidden="true" />
   </label>
-  <toc-panel data-bar>
-    <ul data-scroll-fade>
-      {sections.map(({ id, href, label, open, headings }) =>
+  <ul data-bar>
+    {sections.map(({ id, label, open, headings }) =>
         id ? (
           <li data-group>
             {headings.length > 0 ? (
               <details open={open || undefined}>
                 <summary>
-                  <a href={`#${id}`} data-article-url={href}>
-                    <Fragment set:html={asInline(label).html} />
-                  </a>
+                  <a href={`#${id}`}>{label}</a>
                   <ChevronIcon aria-hidden="true" />
                 </summary>
                 <ul>
-                  {headings.map(({ depth, slug, text, html }) => (
+                  {headings.map(({ depth, slug, text }) => (
                     <li data-depth={depth}>
-                      <a href={`#${slug}`} data-article-url={href}>
-                        {html ? <Fragment set:html={html} /> : text}
-                      </a>
+                      <a href={`#${slug}`}>{text}</a>
                     </li>
                   ))}
                 </ul>
               </details>
             ) : (
-              <a href={`#${id}`} data-article-url={href}>
-                <Fragment set:html={asInline(label).html} />
-              </a>
+              <a href={`#${id}`}>{label}</a>
             )}
           </li>
         ) : (
-          headings.map(({ depth, slug, text, html }) => (
+          headings.map(({ depth, slug, text }) => (
             <li data-depth={depth}>
-              <a href={`#${slug}`} data-article-url={href}>
-                {html ? <Fragment set:html={html} /> : text}
-              </a>
+              <a href={`#${slug}`}>{text}</a>
             </li>
           ))
         ),
       )}
-    </ul>
-  </toc-panel>
+  </ul>
 </nav>
 
 <style>
@@ -96,31 +82,15 @@ const title = asInline(titleLabel)
     grid-template-rows: 0fr;
     flex-shrink: 0;
     font-weight: var(--font-weight-medium);
-    transition:
-      grid-template-rows 0.3s ease,
-      margin-block-end 0.3s ease;
 
     > span {
       min-height: 0;
       overflow: hidden;
-      opacity: 0;
-      translate: 0 -0.25rem;
-      transition:
-        opacity 0.15s ease,
-        translate 0.15s ease;
     }
 
     &[data-visible] {
       grid-template-rows: 1fr;
       margin-block-end: var(--space-2xs);
-
-      > span {
-        opacity: 1;
-        translate: 0 0;
-        transition:
-          opacity 0.25s ease 0.1s,
-          translate 0.25s ease 0.1s;
-      }
     }
 
     @media (width < 64rem) {
@@ -197,24 +167,7 @@ const title = asInline(titleLabel)
     }
   }
 
-  toc-panel {
-    display: contents;
-
-    @media (width < 64rem) {
-      display: none;
-      position: absolute;
-      inset-block-start: 100%;
-      inset-inline: 0;
-    }
-  }
-
-  nav:has(input:checked) toc-panel {
-    @media (width < 64rem) {
-      display: block;
-    }
-  }
-
-  toc-panel > ul {
+  nav > ul {
     min-height: 0;
     overflow-x: hidden;
     overflow-y: auto;
@@ -226,7 +179,17 @@ const title = asInline(titleLabel)
     }
 
     @media (width < 64rem) {
+      display: none;
+      position: absolute;
+      inset-block-start: 100%;
+      inset-inline: 0;
       max-block-size: 30svh;
+    }
+  }
+
+  nav:has(input:checked) > ul {
+    @media (width < 64rem) {
+      display: flex;
     }
   }
 
@@ -237,7 +200,6 @@ const title = asInline(titleLabel)
 
     a {
       color: var(--muted-foreground);
-      transition: color 0.2s ease;
 
       &:hover,
       &[data-active] {
@@ -314,19 +276,11 @@ const title = asInline(titleLabel)
 </style>
 
 <script>
-  import { hashId, normalizePath } from "@/lib/utils"
+  import { hashId } from "@/lib/utils"
 
-  let teardown: (() => void) | undefined
-
-  const setup = () => {
-    teardown?.()
-    teardown = undefined
-
+  ;(() => {
     const nav = document.querySelector<HTMLElement>("page-toc nav")
     if (!nav) return
-
-    const controller = new AbortController()
-    const { signal } = controller
 
     const ring = nav.querySelector<SVGElement>("label svg")
     const mobile = matchMedia("(width < 64rem)")
@@ -338,56 +292,40 @@ const title = asInline(titleLabel)
         String(max > 0 ? Math.min(scrollY / max, 1) : 0),
       )
     }
-    addEventListener("scroll", progress, { passive: true, signal })
-    mobile.addEventListener("change", progress, { signal })
+    addEventListener("scroll", progress, { passive: true })
+    mobile.addEventListener("change", progress)
     progress()
 
-    let observer: IntersectionObserver | undefined
-    let resizeFrame: number | undefined
-    teardown = () => {
-      controller.abort()
-      if (resizeFrame !== undefined) cancelAnimationFrame(resizeFrame)
-      observer?.disconnect()
-    }
-
-    const articles = document.querySelectorAll<HTMLElement>(
-      "main article[data-url]",
-    )
-    const articleByUrl = new Map(
-      [...articles].map((article) => [article.dataset.url, article]),
-    )
     const seen = new Map<string, number>()
     const links = new Map<Element, HTMLAnchorElement>()
-    for (const a of nav.querySelectorAll<HTMLAnchorElement>("a[href]")) {
-      if (!a.hash) continue
+    for (const a of nav.querySelectorAll<HTMLAnchorElement>("a[href^='#']")) {
       const id = hashId(a.hash)
       const nth = seen.get(id) ?? 0
       seen.set(id, nth + 1)
-      const article = articleByUrl.get(
-        a.dataset.articleUrl ?? normalizePath(a.pathname),
-      )
-      const target = article
-        ? article.id === id
-          ? article
-          : article.querySelector(`[id="${CSS.escape(id)}"]`)
-        : document.querySelectorAll(`[id="${CSS.escape(id)}"]`)[nth]
+      const target = document.querySelectorAll(`[id="${CSS.escape(id)}"]`)[nth]
       if (target) links.set(target, a)
     }
-    const list = nav.querySelector("toc-panel > ul")
+    const articles = document.querySelectorAll("main article")
+    const list = nav.querySelector(":scope > ul")
     const title = nav.querySelector("toc-title")
     const currentLabel = nav.querySelector("toc-current")
     const toggle = nav.querySelector<HTMLInputElement>("input")
     const heading = document.querySelector("article > header h1")
     if (articles.length === 0 || !list || links.size === 0) return
 
-    const fallback = currentLabel?.innerHTML ?? ""
+    const fallback = currentLabel?.textContent ?? ""
+
+    const scrollPaddingTop =
+      Number.parseFloat(
+        getComputedStyle(document.documentElement).scrollPaddingBlockStart,
+      ) || 0
 
     const groups = [
       ...nav.querySelectorAll<HTMLDetailsElement>("li[data-group] details"),
     ].map((details) => ({
       details,
       active: details.open,
-      anchors: [...details.querySelectorAll<HTMLAnchorElement>("a[href]")],
+      anchors: [...details.querySelectorAll<HTMLAnchorElement>("a[href^='#']")],
     }))
 
     const blockOf = new Map<Element, Element>()
@@ -438,7 +376,10 @@ const title = asInline(titleLabel)
       }
     })
 
-    const updateActive = (entries: IntersectionObserverEntry[]) => {
+    const observerOptions = {
+      rootMargin: `-${scrollPaddingTop}px 0px 0px`,
+    }
+    const observer = new IntersectionObserver((entries) => {
       for (const entry of entries) {
         if (entry.target === heading) {
           const past = !entry.isIntersecting
@@ -463,8 +404,8 @@ const title = asInline(titleLabel)
       firstActive?.setAttribute("aria-current", "location")
 
       if (currentLabel) {
-        const label = firstActive?.innerHTML?.trim() || fallback
-        if (currentLabel.innerHTML !== label) currentLabel.innerHTML = label
+        const label = firstActive?.textContent?.trim() || fallback
+        if (currentLabel.textContent !== label) currentLabel.textContent = label
       }
 
       for (const group of groups) {
@@ -484,49 +425,13 @@ const title = asInline(titleLabel)
       }
       prevActive = activeTargets
       if (grew) center()
+    }, observerOptions)
+
+    for (const block of sectionOf.keys()) observer.observe(block)
+    if (heading) {
+      observer.observe(heading)
+    } else {
+      title?.toggleAttribute("data-visible", true)
     }
-
-    const pixels = (value: string) => Number.parseFloat(value) || 0
-    const observe = () => {
-      const scrollPadding = pixels(
-        getComputedStyle(document.documentElement).scrollPaddingBlockStart,
-      )
-      const scrollMargin = Math.max(
-        0,
-        ...[...links.keys()].map((target) =>
-          pixels(getComputedStyle(target).scrollMarginBlockStart),
-        ),
-      )
-      const topInset = scrollPadding + scrollMargin
-
-      visible.clear()
-      prevActive.clear()
-      observer?.disconnect()
-      observer = new IntersectionObserver(updateActive, {
-        rootMargin: `${-topInset}px 0px 0px`,
-      })
-
-      for (const block of sectionOf.keys()) observer.observe(block)
-      if (heading) {
-        observer.observe(heading)
-      } else {
-        title?.toggleAttribute("data-visible", true)
-      }
-    }
-
-    addEventListener(
-      "resize",
-      () => {
-        if (resizeFrame !== undefined) cancelAnimationFrame(resizeFrame)
-        resizeFrame = requestAnimationFrame(() => {
-          resizeFrame = undefined
-          observe()
-        })
-      },
-      { passive: true, signal },
-    )
-    observe()
-  }
-
-  document.addEventListener("astro:page-load", setup)
+  })()
 </script>

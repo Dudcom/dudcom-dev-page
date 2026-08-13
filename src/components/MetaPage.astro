@@ -1,40 +1,29 @@
 ---
 import { SITE } from "@/consts"
 import { pageTitle } from "@/lib/content"
-import { plainInline } from "@/lib/markdown/inline-markdown"
 
 type Props = {
   title?: string
   description?: string
   noindex?: boolean
-  canonical?: string
-  image?: string
 }
 
-const {
-  title,
-  description = SITE.description,
-  noindex = false,
-  canonical: canonicalPath,
-  image,
-} = Astro.props
+const { title, description = SITE.description, noindex = false } = Astro.props
 
 const base = Astro.site ?? new URL(Astro.url.origin)
-const plainTitle = title ? plainInline(title) : undefined
-const plainDescription = plainInline(description)
-const ogTitle = plainTitle ?? SITE.title
-const fullTitle = plainTitle ? pageTitle(plainTitle) : SITE.title
-const canonical = new URL(canonicalPath ?? Astro.url.pathname, base)
-const ogImage = new URL(image ?? SITE.defaultPageImage, base)
+const ogTitle = title ?? SITE.title
+const fullTitle = title ? pageTitle(title) : SITE.title
+const canonical = new URL(Astro.url.pathname, base)
+const ogImage = new URL(SITE.defaultPageImage, base)
 ---
 
 <title>{fullTitle}</title>
-<meta name="description" content={plainDescription}>
+<meta name="description" content={description}>
 <link rel="canonical" href={canonical}>
 {noindex && <meta name="robots" content="noindex, nofollow" />}
 
 <meta property="og:title" content={ogTitle}>
-<meta property="og:description" content={plainDescription}>
+<meta property="og:description" content={description}>
 <meta property="og:url" content={canonical}>
 <meta property="og:type" content="website">
 <meta property="og:site_name" content={SITE.title}>
@@ -44,6 +33,6 @@ const ogImage = new URL(image ?? SITE.defaultPageImage, base)
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content={ogTitle}>
-<meta name="twitter:description" content={plainDescription}>
+<meta name="twitter:description" content={description}>
 <meta name="twitter:image" content={ogImage}>
 <meta name="twitter:image:alt" content={ogTitle}>

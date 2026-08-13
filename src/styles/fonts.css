@@ -1,55 +1,9 @@
 @font-face {
-  font-family: "MD Lorien";
-  src: url("../assets/fonts/MDLorien-Regular.woff2") format("woff2");
+  font-family: "Game Paused DEMO";
+  src: url("../assets/fonts/GamePausedDEMO.otf") format("opentype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
-}
-
-@font-face {
-  font-family: "MD Lorien";
-  src: url("../assets/fonts/MDLorien-Italic.woff2") format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "MD Lorien SC";
-  src: url("../assets/fonts/MDLorienSC-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "MD Lorien SC";
-  src: url("../assets/fonts/MDLorienSC-Italic.woff2") format("woff2");
-  font-weight: 400;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "MD Lorien Fallback";
-  src: local("Georgia");
-  font-weight: 100 900;
-  font-style: normal;
-  size-adjust:       97.7891%;
-  ascent-override:   90.8077%;
-  descent-override:  31.9054%;
-  line-gap-override: 0%;
-}
-
-@font-face {
-  font-family: "MD Lorien Fallback";
-  src: local("Georgia Italic"), local("Georgia-Italic");
-  font-weight: 100 900;
-  font-style: italic;
-  size-adjust:       86.3861%;
-  ascent-override:   102.7943%;
-  descent-override:  36.1169%;
-  line-gap-override: 0%;
 }
 
 @font-face {
@@ -169,9 +123,7 @@
 }
 
 :root {
-  --font-sans:
-    "MD Lorien", "MD Lorien Fallback", "IBM Plex Sans", "Shippori Mincho B1",
-    "IBM Plex Sans Fallback", sans-serif;
+  --font-sans: "IBM Plex Sans", "IBM Plex Sans Fallback", sans-serif;
   --font-mono: "IBM Plex Mono", "IBM Plex Mono Fallback", monospace;
   --font-math: "STIX Two Math", math;
 }

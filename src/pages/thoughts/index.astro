@@ -1,0 +1,29 @@
+---
+import BlogCard from "@/components/BlogCard.astro"
+import MetaPage from "@/components/MetaPage.astro"
+import Layout from "@/layouts/Layout.astro"
+import { getCollection } from "astro:content"
+
+const thoughts = (
+  await getCollection("thoughts", ({ data }) => !data.draft)
+).sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+---
+
+<Layout>
+  <MetaPage slot="head" title="Thoughts" />
+  {thoughts.length > 0 ? (
+      <ul>
+        {thoughts.map((thought) => <BlogCard post={thought} />)}
+      </ul>
+    ) : (
+      <p>Nothing here yet.</p>
+    )}
+</Layout>
+
+<style>
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-m);
+  }
+</style>
