@@ -81,7 +81,7 @@ Regardless of what people think about CTFing or the state of CTFs, I know almost
 
 Even if the kind of CTFing we knew becomes limited to competitions where AI is not allowed, I have to ask everyone in the community: do you still have fun? If so, what is stopping you from putting in the energy to keep this alive?
 
-For me, this DEF CON has made me more excited than ever to keep CTFing and keep SPL alive. I hope others in the community have had the same experience, and that we can keep moving toward an elegant solution that lets people have fun, showcase their skills, and stay relevant to the current world of computer science, engineering, and security.
+For me, this DEF CON has made me more excited than ever to keep CTFing and most of all keep SPL alive. I hope others in the community have had the same experience, and that we can keep moving toward an elegant solution that lets people have fun, showcase their skills, and stay relevant to the current world of computer science, engineering, and security.
 
 ## Are CTFs Pay2win?
 
