@@ -1,0 +1,200 @@
+<!DOCTYPE html><html lang="en-US" dir="ltr" data-astro-cid-ju4pidww> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"><meta name="generator" content="Astro v7.0.2"><meta name="HandheldFriendly" content="True"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="dudcom.dev"><meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no"><meta name="theme-color" content="#05070b" media="(prefers-color-scheme: dark)"><meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)"><link rel="icon" type="image/png" href="/static/dudcom-d.png" sizes="128x128"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="sitemap" href="/sitemap-index.xml"><link rel="preload" href="/_astro/IBMPlexSans-VariableFont_wdth_wght.Dew2wRiQ.woff2" as="font" type="font/woff2" crossorigin><link rel="preload" href="/_astro/IBMPlexSans-Italic-VariableFont_wdth_wght.pQNzRgz1.woff2" as="font" type="font/woff2" crossorigin><script>
+    const theme = localStorage.theme
+    if (theme === "light" || theme === "dark")
+      document.documentElement.dataset.theme = theme
+  </script>
+    <title>Thoughts on DEF CON Finals 2026 | dudcom.dev</title> <meta name="description" content="Thoughts on tooling, competition design, and the future of CTFs after DEF CON Finals 2026."> <link rel="canonical" href="https://dudcom.dev/thoughts/defcon-finals-2026/"> <meta property="og:title" content="Thoughts on DEF CON Finals 2026"> <meta property="og:description" content="Thoughts on tooling, competition design, and the future of CTFs after DEF CON Finals 2026."> <meta property="og:type" content="article"> <meta property="og:url" content="https://dudcom.dev/thoughts/defcon-finals-2026/"> <meta property="og:site_name" content="dudcom.dev"> <meta property="og:locale" content="en_US"> <meta property="og:image" content="https://dudcom.dev/static/dudcom-og.png"> <meta property="og:image:alt" content="Thoughts on DEF CON Finals 2026"> <meta name="twitter:card" content="summary_large_image"> <meta name="twitter:title" content="Thoughts on DEF CON Finals 2026"> <meta name="twitter:description" content="Thoughts on tooling, competition design, and the future of CTFs after DEF CON Finals 2026."> <meta name="twitter:image" content="https://dudcom.dev/static/dudcom-og.png"> <meta name="twitter:image:alt" content="Thoughts on DEF CON Finals 2026"> <meta name="twitter:creator" content="Dudcom"> <meta property="article:published_time" content="2026-08-13T00:00:00.000Z"> <meta property="article:author" content="Dudcom">
+  <style>button[data-astro-cid-p774adf7]{color:var(--foreground);visibility:hidden;&[data-visible]{visibility:visible}}button[data-astro-cid-p774adf7]:not([data-floating]){@media (width<64rem){display:none}}button[data-astro-cid-p774adf7][data-floating]{z-index:10;background-color:color-mix(in oklab, var(--background) 90%, transparent);width:2.5rem;height:2.5rem;backdrop-filter:blur(var(--blur-sm));border:1.5px solid var(--border);border-radius:var(--radius-md);position:fixed;inset-block-end:var(--grid-gutter);inset-inline-end:var(--grid-gutter);@media (width>=64rem){display:none}}nav[data-astro-cid-p33bl5ka]{top:var(--page-offset-top);max-height:calc(100svh - var(--page-offset-top) - var(--page-offset-bottom));font-size:var(--step--1);flex-direction:column;display:flex;position:sticky;@media (width<64rem){max-height:none;position:relative;top:auto}}toc-title[data-astro-cid-p33bl5ka]{font-weight:var(--font-weight-medium);flex-shrink:0;grid-template-rows:0fr;display:grid;&>span[data-astro-cid-p33bl5ka]{min-height:0;overflow:hidden}&[data-visible]{grid-template-rows:1fr;margin-block-end:var(--space-2xs)}@media (width<64rem){display:none}}label[data-astro-cid-p33bl5ka]{display:none;@media (width<64rem){align-items:center;gap:var(--space-2xs);cursor:pointer;display:flex;& input{opacity:0;pointer-events:none;position:absolute}&>svg[data-astro-cid-p33bl5ka]:first-of-type{flex-shrink:0;block-size:1em;inline-size:1em;& circle{fill:none;stroke:var(--border);stroke-width:2px;&:last-child{--circumference:calc(2 * pi * 6.5px);stroke:var(--muted-foreground);stroke-dasharray:var(--circumference);stroke-dashoffset:calc(var(--circumference) * (1 - var(--progress,0)))}}}& toc-current{text-overflow:ellipsis;white-space:nowrap;min-width:0;color:var(--muted-foreground);flex:1;overflow:hidden}&>svg[data-astro-cid-p33bl5ka]:last-of-type{block-size:1em;inline-size:1em;color:var(--muted-foreground);flex-shrink:0}}}nav[data-astro-cid-p33bl5ka]:has(input:focus-visible) label[data-astro-cid-p33bl5ka]{@media (width<64rem){outline:2px solid var(--ring);outline-offset:-2px}}nav[data-astro-cid-p33bl5ka]:has(input:checked) label[data-astro-cid-p33bl5ka]>svg[data-astro-cid-p33bl5ka]:last-of-type{@media (width<64rem){rotate:180deg}}nav[data-astro-cid-p33bl5ka]>ul[data-astro-cid-p33bl5ka]{overscroll-behavior:contain;scrollbar-width:none;min-height:0;overflow:hidden auto;&::-webkit-scrollbar{display:none}@media (width<64rem){max-block-size:30svh;display:none;position:absolute;inset-block-start:100%;inset-inline:0}}nav[data-astro-cid-p33bl5ka]:has(input:checked)>ul[data-astro-cid-p33bl5ka]{@media (width<64rem){display:flex}}ul[data-astro-cid-p33bl5ka]{gap:var(--space-3xs);flex-direction:column;display:flex;& a{color:var(--muted-foreground);&:hover,&[data-active]{color:var(--foreground)}}& li[data-group]{font-weight:var(--font-weight-medium);&:not(:first-child){margin-block-start:var(--space-2xs)}& summary{cursor:pointer;align-items:center;gap:.375rem;list-style:none;display:flex;&::-webkit-details-marker{display:none}& a{min-inline-size:0}& svg{block-size:1em;inline-size:1em;color:var(--muted-foreground);flex-shrink:0;margin-inline-start:auto}&:hover svg[data-astro-cid-p33bl5ka]{color:var(--foreground)}}& details[open]>summary[data-astro-cid-p33bl5ka] svg{rotate:180deg}& details>ul[data-astro-cid-p33bl5ka]{--shift:1;font-weight:var(--font-weight-normal);margin-block-start:var(--space-3xs)}& details:not([open]):has(a[data-active]) summary a{color:var(--foreground)}}& li[data-depth]{padding-inline-start:calc((var(--shift,0) + var(--indent,0)) * var(--space-xs))}& li[data-depth="3"]{--indent:1}& li[data-depth="4"]{--indent:2}}
+</style><link rel="stylesheet" href="/_astro/Layout.BKSdyVJ7.css"><style>header[data-astro-cid-diolntoi]{margin-block-end:var(--space-m);& h1{font-size:var(--step-3);line-height:calc(var(--leading-offset) + 1em);font-weight:var(--font-weight-medium)}& post-meta{--underline:var(--muted-foreground);align-items:center;gap:var(--space-3xs);font-size:var(--step--1);color:var(--muted-foreground);flex-wrap:wrap;margin-block-start:var(--space-3xs);display:flex;& post-authors{align-items:center;gap:var(--space-3xs);display:flex;& author-avatars{margin-block-end:-.1em;display:flex;& img{border-radius:var(--radius-full);box-shadow:0 0 0 1.5px var(--background);&:not(:first-child){margin-inline-start:-.375rem}}}}& post-authors~time[data-astro-cid-diolntoi]:before{content:"·";margin-inline-end:var(--space-3xs)}& post-tags{--underline:transparent;gap:var(--space-3xs);flex-wrap:wrap;display:flex;& a{color:color-mix(in oklab, var(--muted-foreground) 50%, transparent);&:hover{color:var(--foreground)}}}& time~post-tags[data-astro-cid-diolntoi]:before{content:"·"}& a{color:var(--foreground)}}&>p[data-astro-cid-diolntoi]{font-size:var(--step--1);color:var(--muted-foreground);margin-block-start:var(--space-2xs)}}post-banner[data-astro-cid-diolntoi]{margin-block-end:var(--space-m);display:block;& img{block-size:auto;inline-size:100%}}
+</style><script type="module" src="/_astro/page.169VI7mI.js"></script></head> <body data-astro-cid-ju4pidww> <script type="module">var e=()=>{let e=document.documentElement,t=e.dataset.theme===`dark`||!e.dataset.theme&&matchMedia(`(prefers-color-scheme: dark)`).matches?`light`:`dark`;e.dataset.theme=t,localStorage.theme=t},t=document.getElementById(`theme-toggle`);t&&(t.onclick=e);</script><script type="module" src="/_astro/TableOfContents.astro_astro_type_script_index_0_lang.BXJQX1UU.js"></script><script type="module">var e=[...document.querySelectorAll(`[data-scroll-top]`)],t=()=>{let t=scrollY>innerHeight*.5;for(let n of e)n.toggleAttribute(`data-visible`,t)};addEventListener(`scroll`,t,{passive:!0}),t(),document.addEventListener(`click`,e=>{e.target.closest(`[data-scroll-top]`)&&window.scrollTo({top:0})});</script><page-grid data-astro-cid-ju4pidww="true">
+      <div class="comets" aria-hidden="true" data-astro-cid-ju4pidww></div>
+      <page-header data-astro-cid-ju4pidww="true">
+        <page-nav data-astro-cid-ju4pidww="true">
+          <aside data-bar data-astro-cid-wv7whodv> <sidebar-inner data-astro-cid-wv7whodv="true">
+    <a href="/" aria-label="dudcom.dev" data-astro-cid-wv7whodv> <img class="d-logo" src="/static/dudcom-d.png" alt="" width="100" height="100" data-astro-cid-wv7whodv> <span data-astro-cid-wv7whodv>udcom.dev</span> </a>
+    <nav data-astro-cid-wv7whodv> <ul data-astro-cid-wv7whodv> <li data-astro-cid-wv7whodv> <a href="/blog" data-astro-cid-wv7whodv> Tech-Blog </a>  </li><li data-astro-cid-wv7whodv> <a href="/thoughts" data-astro-cid-wv7whodv> Thoughts </a> <ul data-astro-cid-wv7whodv> <li data-astro-cid-wv7whodv> <a href="/thoughts/defcon-finals-2026" aria-current="page" data-astro-cid-wv7whodv> Thoughts on DEF CON Finals 2026 </a> </li> </ul> </li><li data-astro-cid-wv7whodv> <a href="/misc-blog" data-astro-cid-wv7whodv> Misc-Blog </a>  </li>  </ul> </nav>
+  </sidebar-inner> <sidebar-toggle data-astro-cid-wv7whodv="true">
+    <button id="theme-toggle" data-icon-button aria-label="Toggle theme"> <light-icon><svg width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10a5 5 0 0 0 0-10" /><path fill="currentColor" fill-rule="evenodd" d="M12 1a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0V2a1 1 0 0 1 1-1M3.293 3.293a1 1 0 0 1 1.414 0l1.5 1.5a1 1 0 0 1-1.414 1.414l-1.5-1.5a1 1 0 0 1 0-1.414m17.414 0a1 1 0 0 1 0 1.414l-1.5 1.5a1 1 0 1 1-1.414-1.414l1.5-1.5a1 1 0 0 1 1.414 0M1 12a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2H2a1 1 0 0 1-1-1m19 0a1 1 0 0 1 1-1h1a1 1 0 1 1 0 2h-1a1 1 0 0 1-1-1M6.207 17.793a1 1 0 0 1 0 1.414l-1.5 1.5a1 1 0 0 1-1.414-1.414l1.5-1.5a1 1 0 0 1 1.414 0m11.586 0a1 1 0 0 1 1.414 0l1.5 1.5a1 1 0 0 1-1.414 1.414l-1.5-1.5a1 1 0 0 1 0-1.414M12 20a1 1 0 0 1 1 1v1a1 1 0 1 1-2 0v-1a1 1 0 0 1 1-1" clip-rule="evenodd" /></svg></light-icon> <dark-icon><svg width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M20.958 15.325c.204-.486-.379-.9-.868-.684a7.7 7.7 0 0 1-3.101.648c-4.185 0-7.577-3.324-7.577-7.425a7.3 7.3 0 0 1 1.134-3.91c.284-.448-.057-1.068-.577-.936C5.96 4.041 3 7.613 3 11.862C3 16.909 7.175 21 12.326 21c3.9 0 7.24-2.345 8.632-5.675" /><path fill="currentColor" d="M15.611 3.103c-.53-.354-1.162.278-.809.808l.63.945a2.33 2.33 0 0 1 0 2.588l-.63.945c-.353.53.28 1.162.81.808l.944-.63a2.33 2.33 0 0 1 2.588 0l.945.63c.53.354 1.162-.278.808-.808l-.63-.945a2.33 2.33 0 0 1 0-2.588l.63-.945c.354-.53-.278-1.162-.809-.808l-.944.63a2.33 2.33 0 0 1-2.588 0z" /></svg></dark-icon> </button> 
+    
+  </sidebar-toggle> </aside>
+        </page-nav>
+        <page-toc data-astro-cid-ju4pidww="true"><nav aria-label="Table of contents" data-astro-cid-p33bl5ka> <toc-title aria-hidden="true" data-astro-cid-p33bl5ka="true"><span data-astro-cid-p33bl5ka>Thoughts on DEF CON Finals 2026</span></toc-title> <label data-bar data-astro-cid-p33bl5ka> <input type="checkbox" aria-label="Toggle table of contents" data-astro-cid-p33bl5ka> <svg viewBox="0 0 16 16" aria-hidden="true" data-astro-cid-p33bl5ka> <circle cx="8" cy="8" r="6.5" data-astro-cid-p33bl5ka></circle> <circle cx="8" cy="8" r="6.5" transform="rotate(-90 8 8)" data-astro-cid-p33bl5ka></circle> </svg> <toc-current data-astro-cid-p33bl5ka="true">Thoughts on DEF CON Finals 2026</toc-current> <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-p33bl5ka="true"><path fill="currentColor" d="m12.37 15.835l6.43-6.63C19.201 8.79 18.958 8 18.43 8H5.57c-.528 0-.771.79-.37 1.205l6.43 6.63c.213.22.527.22.74 0" /></svg> </label> <ul data-bar data-astro-cid-p33bl5ka> <li data-depth="2" data-astro-cid-p33bl5ka> <a href="#a-bit-about-me" data-astro-cid-p33bl5ka>A bit about me</a> </li><li data-depth="2" data-astro-cid-p33bl5ka> <a href="#tooling-before-the-ctf" data-astro-cid-p33bl5ka>Tooling Before the CTF</a> </li><li data-depth="2" data-astro-cid-p33bl5ka> <a href="#tooling-during-the-competition" data-astro-cid-p33bl5ka>Tooling During the Competition</a> </li><li data-depth="2" data-astro-cid-p33bl5ka> <a href="#challenges-during-the-ctf" data-astro-cid-p33bl5ka>Challenges During the CTF</a> </li><li data-depth="2" data-astro-cid-p33bl5ka> <a href="#what-could-be-better" data-astro-cid-p33bl5ka>What could be better</a> </li><li data-depth="2" data-astro-cid-p33bl5ka> <a href="#why-do-we-ctf" data-astro-cid-p33bl5ka>Why do we CTF?</a> </li><li data-depth="2" data-astro-cid-p33bl5ka> <a href="#are-ctfs-pay-to-win" data-astro-cid-p33bl5ka>Are CTFs Pay to Win?</a> </li> </ul> </nav> </page-toc>
+      </page-header>
+      <page-content data-astro-cid-ju4pidww="true">
+        <main data-astro-cid-ju4pidww>
+  
+  <button data-icon-button data-scroll-top data-floating="true" aria-label="Scroll to top" data-astro-cid-p774adf7> <svg width="1em" height="1em" viewBox="0 0 256 256" data-astro-cid-p774adf7="true"><path fill="currentColor" d="M208.49 120.49a12 12 0 0 1-17 0L140 69v147a12 12 0 0 1-24 0V69l-51.51 51.49a12 12 0 0 1-17-17l72-72a12 12 0 0 1 17 0l72 72a12 12 0 0 1 0 17" /></svg> </button> 
+  <article data-url="/thoughts/defcon-finals-2026" data-title="Thoughts on DEF CON Finals 2026" data-astro-cid-diolntoi> <header data-astro-cid-diolntoi> <h1 data-astro-cid-diolntoi>Thoughts on DEF CON Finals 2026</h1> <post-meta data-astro-cid-diolntoi="true">
+        <post-authors data-astro-cid-diolntoi="true">
+              <author-avatars data-astro-cid-diolntoi="true">
+                <img src="/static/octopus.jpg" alt="Dudcom" width="10" height="18" data-astro-cid-diolntoi>
+              </author-avatars>
+              <author-names data-astro-cid-diolntoi="true">
+                <a href="/" data-astro-cid-diolntoi>Dudcom</a>
+              </author-names>
+            </post-authors>
+        <time datetime="2026-08-13T00:00:00.000Z" data-astro-cid-diolntoi>Aug 13, 2026</time>
+        <post-tags data-astro-cid-diolntoi="true">
+              <a href="/tags/ctf-dead" data-astro-cid-diolntoi>#ctf-dead</a><a href="/tags/def-con" data-astro-cid-diolntoi>#def-con</a>
+            </post-tags>
+      </post-meta> <p data-astro-cid-diolntoi>Thoughts on tooling, competition design, and the future of CTFs after DEF CON Finals 2026.</p> </header>  <prose-content data-astro-cid-diolntoi="true">
+      <p>I felt an insatiable need to ramble about how DEF CON Finals went, so I finally forced myself to make a little blog for myself.</p>
+<h2 id="a-bit-about-me">A bit about me<a data-heading-anchor="" href="#a-bit-about-me" aria-label="Link to this section" tabindex="-1"></a></h2>
+<p>I am one of the captains of Squid Proxy Lovers. We have been doing CTFs since 2023, although I mostly got involved with the team in 2024. Before that, I had done CTFs here and there in high school. Our general age range is around 18-21, with an estimated average of about 19, if I had to guess. I mention this mostly to point out that we are something adjacent to the “new kids on the block.”</p>
+<p>I played DEF CON Finals with SDCL (SuperDiceCodeLovers). I was one of the team admins and tooling leads, and I played both finals and quals for the entirety. Anything I say is entirely my own opinion, and not anyone else’s on the team. I had played DEF CON Finals and Quals, as well as other difficult, top-tier CTFs (Google CTF, PlaidCTF, HITCON, and SECCON), before 2026. I am not totally clueless about the broader decline of CTFing and the scene around it. This blog is partly meant to give people some clarity about how DEF CON CTF looked from a player’s standpoint, and whether top teams are simply throwing AI at problems and “giving up.” I would rather present the details, let you draw your own conclusions, and share my own along the way.</p>
+<p>Here is the breakdown for this blog:</p>
+<ul>
+<li>Tooling Before the CTF</li>
+<li>Tooling During the CTF</li>
+<li>Challenges During the CTF</li>
+<li>What could be better</li>
+<li>Why do we CTF?</li>
+<li>Are CTFs Pay to Win?</li>
+</ul>
+<h2 id="tooling-before-the-ctf">Tooling Before the CTF<a data-heading-anchor="" href="#tooling-before-the-ctf" aria-label="Link to this section" tabindex="-1"></a></h2>
+<p>We started building tools more or less immediately after DEF CON CTF ended in 2025. We began working mostly on AI tooling, as everyone probably did after the live CTF went the way it did.</p>
+<p>The very early draft of this system was <a href="https://spl.team/blog/squid-agent-csaw/" target="_blank" rel="nofollow noreferrer noopener">Squid Agent</a>. It took maybe 1,000 person-hours, a lot of planning, and a lot of design work to get to that point. Around 10 people on our team helped build it. Mind you, it is totally useless now unless you can only use old models!</p>
+<p>We later evolved this into a system that actually worked. It is closer to what most industry bug scanners look like, with some key differences. The overall system performed quite well on normal A/D CTFs, though as you would imagine, it was not the easiest thing to get working perfectly for DEF CON Finals. Additionally, we created a custom thrower that integrated with the system and has been tested across several A/D competitions, so we knew it was very stable and capable of handling DEF CON.</p>
+<p>Beyond that, we had perhaps 5-7 other codebases, with somewhere between 50 and 300 person-hours invested in each. These codebases were less tested, but they were also more standalone, so they did not require an entire A/D CTF network to be running in order to work properly. I hope some of these tools eventually become public, but I cannot make any real promises. There is a lot of non-AI tooling in there that is useful.</p>
+<p>The point of this is not really to brag. It is more to showcase how much energy and effort went into this CTF on our end. Part of what AI allows, and perhaps forces, you to do is create systems and tools much earlier. The ability to engineer systems is now limited mostly by your creativity, your knowledge of the competition, and your energy to make something.</p>
+<p>Challenges that require long-term engineering and problem-solving are a good way to adapt to this new era of CTFing. For my fellow Americans, I would point to ECTF. It is barely a CTF in the traditional sense, but it is a good example of how a long-term project can take the form of a CTF or something adjacent to one.</p>
+<h2 id="tooling-during-the-competition">Tooling During the Competition<a data-heading-anchor="" href="#tooling-during-the-competition" aria-label="Link to this section" tabindex="-1"></a></h2>
+<p>The part of the actual CTF that I enjoyed most was building tooling on the fly. It is like a hackathon where things actually need to work, rather than just meeting a useless sales pitch.</p>
+<p>If your tooling is sloped, you are probably going to spend hours testing it and thinking through edge cases before you can trust it. It is much easier to make new tools in this day and age than it was before, but that adds to the enjoyment. After you make a few standard tools, you need to start thinking about what will actually be useful.</p>
+<p>I imagine some really interesting innovations were made across all teams this year, and hopefully many of them will eventually see the light of day. Our team came up with quite a few useful tools during the CTF, and the overall planning and technical process was very enjoyable. Working with 10-15 people at 4 a.m. to make something cool as hell is a lot of fun.</p>
+<h2 id="challenges-during-the-ctf">Challenges During the CTF<a data-heading-anchor="" href="#challenges-during-the-ctf" aria-label="Link to this section" tabindex="-1"></a></h2>
+<p>The CTF itself was not horrible. The challenges were generally good quality, but if we are being brutally honest, BBB did not do much to prevent the competition from becoming a bit of a slop fest.</p>
+<p>The A/D challenges were good quality on paper. Most of them were designed in a way that made it impossible to fully stop every exploit via patching, which is a good thing: it gives attackers room to keep experimenting and keeps the challenge alive. Most of the exploits were not especially difficult for AI to find, although finding them still took time, so there was a good bit of delay before all teams found all of them. Back to the Future was an exception, with what was effectively an infinite number of exploits.</p>
+<p>The behavior of the defensive patches was a double-edged sword. Since there was rarely one clean way to fix every bug, defense became a game of whack-a-mole. That does not work particularly well when AI can move so quickly that the only practical way to keep up is to use more AI. Even then, most teams eventually gave up on defending certain challenges.</p>
+<p>KoTH was even worse in this respect. Since being first mattered so much for scoring, teams were strongly incentivized to maximize the speed at which they could develop and deploy exploits. Once you reached first place, the game became an infinite hill-climb to stay there. In practice, that meant throwing as much AI at the problem as possible to find increasingly marginal improvements if all major exploits were already found. Once a team’s slop farm gained a lead, it could keep improving slightly faster than everyone else, which only widened the gap. This behavior was sadly unavoidable because KoTH scoring was so heavily weighted toward first place. Consistently winning KoTH was ultimately the main thing that determined who won the finals.</p>
+<p>Beyond removing the one thing that is relatively easy to make anti-AI, the live CTF, it felt like BBB made no real attempt to do anything particularly novel or interesting. The only major new aspect was the rebate system. It was interesting, but its practical effect was mostly to require teams to encrypt their exploits, maintain a test net, and build systems for analyzing network traffic and automating rebates against other teams.</p>
+<p>There are some cool ideas in that system, but they were not enough on their own.</p>
+<h2 id="what-could-be-better">What could be better<a data-heading-anchor="" href="#what-could-be-better" aria-label="Link to this section" tabindex="-1"></a></h2>
+<p>A huge part of the problem with CTFing and challenge design is that the primary scoring mechanism has always been speed. It does not matter how you get a flag: a flag is a flag. For the vast majority of challenges, that is still how the game works.</p>
+<p>The problem BBB has continued to perpetuate is that every challenge eventually devolves into a speed challenge: how fast can you get your A/D exploits up, how fast can you get your KoTH exploits up, and how fast can you bring up defensive patches?</p>
+<p>The solution is not to remove speed entirely, but it is untenable to pretend that humans can compete with AI on speed now. The fact that ticks happen every 3-5 minutes makes this even worse. Having such a short tick interval is not unique to DEF CON, but regardless, it is a problem in my opinion. By the time a human understands a problem, AI models have often already identified it and built a working PoC, perhaps with less depth than a human, and started hill-climbing from that initial draft. Even if those early jumps are sloppy or imperfect, they still score. A human who spends 30 minutes carefully thinking through a problem loses the initial ticks to an AI slop machine that has been running since the first five minutes.</p>
+<p>If I only had, say, three ticks for an entire day on a challenge, I would be forced to put far more energy into every single tick. That would also prevent challenges from reaching a point where humans and agents cannot keep up with the rate of change. During MapleChat, no matter how quickly we worked, new exploits were introduced so rapidly that defensive patching became pointless. Most teams reached that point, and the entire scoreboard turned red and orange. In all fairness, this is just speculation, but I do think slowing down the overall pace of the competition would let human ingenuity matter more than token maxing.</p>
+<p>I would also like to see more ways to score the quality of a solve script rather than only the speed at which it is written. That would not remove the pressure of AI, but it would make it far less overwhelming and give careful engineering more room to matter.</p>
+<p>Finally, having parts of a CTF where AI is limited or not allowed is realistic. I do not see why we cannot have floor-only challenges with AI bans, or something adjacent to that. This is DEF CON Finals after all. If we are going to throw everything at players, this is the best place to do it.</p>
+<h2 id="why-do-we-ctf">Why do we CTF?<a data-heading-anchor="" href="#why-do-we-ctf" aria-label="Link to this section" tabindex="-1"></a></h2>
+<p>Regardless of what people think about CTFing or the state of CTFs, I know almost everyone in SPL had a lot of fun. We worked ourselves to the bone during the CTF and before it. At least for me, I cannot think of a better way to have spent that time.</p>
+<p>Even if the kind of CTFing we knew becomes limited to competitions where AI is not allowed, I have to ask everyone in the community: do you still have fun? If so, what is stopping you from putting in the energy to keep this alive?</p>
+<p>For me, this DEF CON has made me more excited than ever to keep CTFing and, most of all, keep SPL alive. I hope others in the community have had the same experience, and that we can keep moving toward an elegant solution that lets people have fun, showcase their skills, and stay relevant to the current world of computer science, engineering, and security.</p>
+<h2 id="are-ctfs-pay-to-win">Are CTFs Pay to Win?<a data-heading-anchor="" href="#are-ctfs-pay-to-win" aria-label="Link to this section" tabindex="-1"></a></h2>
+<p>One big question the community has been discussing is whether CTFs have become pay-to-win and whether it is now impossible to compete without AI. My opinion is mixed. For most smaller CTFs, we have sadly reached levels of pay-to-win that I have never seen before. For DEF CON Finals, however, not much has changed.</p>
+<p>Teams have always had significant financial requirements just to function, including travel, infrastructure, and housing. Our total AI spending was around $3,000-$4,000 over the course of a year, including R&amp;D. During DEF CON itself, we spent around $1,000 on extra AI subscriptions. For context, our cloud bill was $3,000, as was the cost of each of the two Airbnbs we needed for the competition.</p>
+<p>Most people on our team also had a personal 20x account for either Claude or Codex, and some had both. From what I have heard, a good number of teams were simply assuming that their members already had access to an account. Admittedly, this is a privilege most team have at defcon thanks to being largley American/East Asian teams with an average age in the mid-20s, where most people have jobs or internships in tech and can afford paying for these accounts. Regarding DEF CON, this seems fairly standard and reasonable. Most teams are probably in a similar position, so the playing field does not seem too uneven in that regard.</p>
+
+    </prose-content> </article>
+</main>
+        <page-footer data-astro-cid-ju4pidww="true"><footer data-astro-cid-jo6i4kqk> <p data-astro-cid-jo6i4kqk>
+&copy; 2026 dudcom.dev </p> <p data-astro-cid-jo6i4kqk>
+Built with
+<a href="https://github.com/jktrn/astro-erudite" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>astro-erudite</a>
+by
+<a href="https://github.com/jktrn" target="_blank" rel="noopener noreferrer" data-astro-cid-jo6i4kqk>enscribe</a>.
+</p> <ul data-astro-cid-o2gh7vpa> <li data-astro-cid-o2gh7vpa> <a href="https://github.com/Dudcom" data-icon-button target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub" data-astro-cid-o2gh7vpa> <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-o2gh7vpa="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" /></svg> </a> </li><li data-astro-cid-o2gh7vpa> <a href="https://x.com/dudcom3" data-icon-button target="_blank" rel="noopener noreferrer" aria-label="Twitter" title="Twitter" data-astro-cid-o2gh7vpa> <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-o2gh7vpa="true"><path fill="currentColor" d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23" /></svg> </a> </li><li data-astro-cid-o2gh7vpa> <a href="https://www.linkedin.com/in/tanush-madanbhavi/" data-icon-button target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn" data-astro-cid-o2gh7vpa> <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-o2gh7vpa="true"><path fill="currentColor" fill-rule="evenodd" d="M1.25 9A6.75 6.75 0 0 1 8 2.25h4a6.75 6.75 0 0 1 0 13.5h-2a.75.75 0 0 1 0-1.5h2a5.25 5.25 0 1 0 0-10.5H8a5.25 5.25 0 0 0-3.913 8.75a.75.75 0 0 1-1.118 1A6.73 6.73 0 0 1 1.25 9M12 9.75a5.25 5.25 0 1 0 0 10.5h4a5.25 5.25 0 0 0 3.913-8.75a.75.75 0 1 1 1.118-1A6.75 6.75 0 0 1 16 21.75h-4a6.75 6.75 0 0 1 0-13.5h2a.75.75 0 0 1 0 1.5z" clip-rule="evenodd" /></svg> </a> </li><li data-astro-cid-o2gh7vpa> <a href="mailto:dudcom@spl.team" data-icon-button target="_blank" rel="noopener noreferrer" aria-label="Email" title="Email" data-astro-cid-o2gh7vpa> <svg width="1em" height="1em" viewBox="0 0 24 24" aria-hidden="true" data-astro-cid-o2gh7vpa="true"><path fill="currentColor" fill-rule="evenodd" d="M3.172 5.172C2 6.343 2 8.229 2 12s0 5.657 1.172 6.828S6.229 20 10 20h4c3.771 0 5.657 0 6.828-1.172S22 15.771 22 12s0-5.657-1.172-6.828S17.771 4 14 4h-4C6.229 4 4.343 4 3.172 5.172M18.576 7.52a.75.75 0 0 1-.096 1.056l-2.196 1.83c-.887.74-1.605 1.338-2.24 1.746c-.66.425-1.303.693-2.044.693s-1.384-.269-2.045-.693c-.634-.408-1.352-1.007-2.239-1.745L5.52 8.577a.75.75 0 0 1 .96-1.153l2.16 1.799c.933.777 1.58 1.315 2.128 1.667c.529.34.888.455 1.233.455s.704-.114 1.233-.455c.547-.352 1.195-.89 2.128-1.667l2.159-1.8a.75.75 0 0 1 1.056.097" clip-rule="evenodd" /></svg> </a> </li> </ul> </footer></page-footer>
+      </page-content>
+    </page-grid> <script>
+      const comets = () => {
+        const container = document.querySelector(".comets")
+        if (!container) return
+
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          const el = document.createElement("div")
+          el.className = "comet"
+          el.style.opacity = "0.35"
+          el.style.rotate = "16deg"
+          el.style.translate = "62vw 20vh"
+          container.appendChild(el)
+          return
+        }
+
+        const makeComet = () => {
+          const el = document.createElement("div")
+          el.className = "comet"
+          container.appendChild(el)
+          const angle = 8 + Math.random() * 10
+          const peak = 0.35 + Math.random() * 0.25
+          const x0 = -14 - Math.random() * 6
+          const y0 = Math.random() * 70
+          const x1 = 112 + Math.random() * 10
+          const slope = Math.tan((angle * Math.PI) / 180)
+          const y1 = y0 + slope * (x1 - x0) * (innerWidth / innerHeight)
+          el.style.rotate = `${angle}deg`
+          return {
+            el,
+            start: performance.now(),
+            duration: 2200 + Math.random() * 1400,
+            peak,
+            x0,
+            y0,
+            x1,
+            y1,
+          }
+        }
+
+        const active = []
+        let nextBatch = performance.now() + 4000 + Math.random() * 4000
+        const MIN_GAP = 9
+
+        const spawnBatch = () => {
+          const count = 1 + Math.floor(Math.random() * 10)
+          const lanes = []
+          for (let i = 0; i < count; i++) {
+            let y = null
+            for (let attempt = 0; attempt < 50; attempt++) {
+              const candidate = Math.random() * 70
+              if (
+                lanes.every((lane) => Math.abs(lane - candidate) >= MIN_GAP)
+              ) {
+                y = candidate
+                break
+              }
+            }
+            if (y === null) continue
+            lanes.push(y)
+            const comet = makeComet()
+            comet.y0 = y
+            comet.y1 =
+              y +
+              Math.tan(((8 + Math.random() * 10) * Math.PI) / 180) *
+                (comet.x1 - comet.x0) *
+                (innerWidth / innerHeight)
+            active.push(comet)
+          }
+        }
+
+        const tick = (time) => {
+          if (time >= nextBatch) {
+            spawnBatch()
+            nextBatch = time + 14000 + Math.random() * 8000
+          }
+          for (let i = active.length - 1; i >= 0; i--) {
+            const c = active[i]
+            const phase = time - c.start
+            if (phase > c.duration) {
+              c.el.remove()
+              active.splice(i, 1)
+              continue
+            }
+            const p = phase / c.duration
+            const fadeIn = 0.15
+            const fadeOut = 0.7
+            const opacity =
+              p < fadeIn
+                ? (c.peak * p) / fadeIn
+                : p > fadeOut
+                  ? Math.max((c.peak * (1 - p)) / (1 - fadeOut), 0)
+                  : c.peak
+            const x = c.x0 + (c.x1 - c.x0) * p
+            const y = c.y0 + (c.y1 - c.y0) * p
+            c.el.style.opacity = String(opacity)
+            c.el.style.translate = `${x}vw ${y}vh`
+          }
+          requestAnimationFrame(tick)
+        }
+        requestAnimationFrame(tick)
+      }
+      comets()
+    </script></body> </html>

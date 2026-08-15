@@ -13,6 +13,7 @@ import { headingAnchors } from "./src/lib/heading-anchors"
 
 export default defineConfig({
   site: "https://dudcom.dev",
+  outDir: "docs",
   compressHTML: true,
   prefetch: { prefetchAll: true },
   integrations: [
