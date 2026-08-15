@@ -8,7 +8,7 @@ tags:
   - v1.6.0
 image: "./assets/mobile-nav-and-subposts.png"
 authors:
-  - enscribe
+  - dudcom
 ---
 
 ## Two major improvements to the reading experience

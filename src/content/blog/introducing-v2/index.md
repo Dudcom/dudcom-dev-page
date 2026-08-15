@@ -4,7 +4,7 @@ description: "I've rebuilt my blogging template from scratch, and it's better in
 draft: true
 date: 2026-06-06
 authors:
-  - enscribe
+  - dudcom
 image: ./assets/banner.png
 tags:
   - v2

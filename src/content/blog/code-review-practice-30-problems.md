@@ -3,7 +3,7 @@ title: "Code Review Practice - 30 Problems"
 description: "Notes from practicing security-focused code review across 30 challenges."
 date: 2025-12-26
 authors:
-  - enscribe
+  - dudcom
 tags:
   - code-review
   - security

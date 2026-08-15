@@ -8,7 +8,7 @@ tags:
   - v1.3.0
 image: "./assets/rehype-patch.png"
 authors:
-  - enscribe
+  - dudcom
 ---
 
 ## A problem (about dead maintainers)

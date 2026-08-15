@@ -10,6 +10,7 @@ import "@/styles/typography-block.css"
 import "@/styles/typography-tables.css"
 import "@/styles/typography-math.css"
 import "@/styles/callout.css"
+import "@/styles/comet.css"
 import "@/styles/layout.css"
 import "@/styles/icon-button.css"
 import "@/styles/bar.css"
@@ -31,6 +32,7 @@ const { crumbs } = Astro.props
   </MetaHead>
   <body>
     <page-grid>
+      <div class="comets" aria-hidden="true"></div>
       <page-header>
         <page-nav>
           <Sidebar crumbs={crumbs}
@@ -46,6 +48,109 @@ const { crumbs } = Astro.props
         <page-footer><Footer /></page-footer>
       </page-content>
     </page-grid>
+    <script is:inline>
+      const comets = () => {
+        const container = document.querySelector(".comets")
+        if (!container) return
+
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          const el = document.createElement("div")
+          el.className = "comet"
+          el.style.opacity = "0.35"
+          el.style.rotate = "16deg"
+          el.style.translate = "62vw 20vh"
+          container.appendChild(el)
+          return
+        }
+
+        const makeComet = () => {
+          const el = document.createElement("div")
+          el.className = "comet"
+          container.appendChild(el)
+          const angle = 10 + Math.random() * 16
+          const peak = 0.3 + Math.random() * 0.25
+          const x0 = -14 - Math.random() * 6
+          const y0 = Math.random() * 80
+          const x1 = 112 + Math.random() * 10
+          const slope = Math.tan((angle * Math.PI) / 180)
+          const y1 = y0 + slope * (x1 - x0) * (innerWidth / innerHeight)
+          el.style.rotate = `${angle}deg`
+          return {
+            el,
+            start: performance.now(),
+            duration: 2200 + Math.random() * 1400,
+            peak,
+            x0,
+            y0,
+            x1,
+            y1,
+          }
+        }
+
+        const active = []
+        let nextBatch = performance.now() + 14000 + Math.random() * 8000
+        const MIN_GAP = 9
+
+        const spawnBatch = () => {
+          const count = 1 + Math.floor(Math.random() * 10)
+          const lanes = []
+          for (let i = 0; i < count; i++) {
+            let y = null
+            for (let attempt = 0; attempt < 50; attempt++) {
+              const candidate = Math.random() * 80
+              if (
+                lanes.every((lane) => Math.abs(lane - candidate) >= MIN_GAP)
+              ) {
+                y = candidate
+                break
+              }
+            }
+            if (y === null) continue
+            lanes.push(y)
+            const comet = makeComet()
+            comet.y0 = y
+            comet.y1 =
+              y +
+              Math.tan(((10 + Math.random() * 16) * Math.PI) / 180) *
+                (comet.x1 - comet.x0) *
+                (innerWidth / innerHeight)
+            active.push(comet)
+          }
+        }
+
+        const tick = (time) => {
+          if (time >= nextBatch) {
+            spawnBatch()
+            nextBatch = time + 14000 + Math.random() * 8000
+          }
+          for (let i = active.length - 1; i >= 0; i--) {
+            const c = active[i]
+            const phase = time - c.start
+            if (phase > c.duration) {
+              c.el.remove()
+              active.splice(i, 1)
+              continue
+            }
+            const p = phase / c.duration
+            const fadeIn = 0.15
+            const fadeOut = 0.7
+            const opacity =
+              p < fadeIn
+                ? (c.peak * p) / fadeIn
+                : p > fadeOut
+                  ? Math.max((c.peak * (1 - p)) / (1 - fadeOut), 0)
+                  : c.peak
+            const x = c.x0 + (c.x1 - c.x0) * p
+            const y = c.y0 + (c.y1 - c.y0) * p
+            c.el.style.opacity = String(opacity)
+            c.el.style.translate = `${x}vw ${y}vh`
+          }
+          requestAnimationFrame(tick)
+        }
+        requestAnimationFrame(tick)
+      }
+      comets()
+    </script>
   </body>
 </html>
 

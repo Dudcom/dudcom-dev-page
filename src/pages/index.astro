@@ -5,7 +5,7 @@ import Layout from "@/layouts/Layout.astro"
 import { getCollection } from "astro:content"
 
 const author = (await getCollection("authors")).find(
-  (entry) => entry.id === "enscribe",
+  (entry) => entry.id === "dudcom",
 )
 
 if (!author) throw new Error("The profile author is missing")

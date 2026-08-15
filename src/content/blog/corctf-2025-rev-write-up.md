@@ -3,7 +3,7 @@ title: "CoRCTF 2025 Rev Write-Up"
 description: "A reverse-engineering write-up covering four CoRCTF 2025 challenges."
 date: 2025-08-31
 authors:
-  - enscribe
+  - dudcom
 tags:
   - reverse-engineering
   - writeup

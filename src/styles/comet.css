@@ -1,0 +1,51 @@
+.comets {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.comets .comet {
+  position: absolute;
+  inset: 0 auto auto 0;
+  inline-size: 6rem;
+  block-size: 2px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in oklab, var(--primary) 18%, transparent) 35%,
+    color-mix(in oklab, var(--primary) 55%, transparent) 80%,
+    var(--primary)
+  );
+  font-size: 0;
+  opacity: 0;
+  will-change: opacity, translate, rotate;
+}
+
+.comets .comet::before {
+  position: absolute;
+  inset: -1px 0 auto 45%;
+  block-size: 3px;
+  border-radius: var(--radius-full);
+  background: linear-gradient(
+    to right,
+    transparent,
+    color-mix(in oklab, var(--primary) 70%, white 10%)
+  );
+  content: "";
+}
+
+.comets .comet::after {
+  position: absolute;
+  inset: 50% -1.5px auto auto;
+  inline-size: 4px;
+  block-size: 4px;
+  border-radius: var(--radius-full);
+  background: color-mix(in oklab, white 60%, var(--primary) 40%);
+  box-shadow: 0 0 5px 1.5px
+      color-mix(in oklab, var(--primary) 70%, transparent),
+    0 0 12px 5px color-mix(in oklab, var(--primary) 25%, transparent);
+  content: "";
+  translate: 0 -50%;
+}

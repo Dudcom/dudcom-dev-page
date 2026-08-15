@@ -3,20 +3,19 @@ title: "Thoughts on DEF CON Finals 2026"
 description: "Thoughts on tooling, competition design, and the future of CTFs after DEF CON Finals 2026."
 date: 2026-08-13
 authors:
-  - enscribe
+  - dudcom
 tags:
-  - thoughts
-  - ctf
-  - def-con
+  - ctfdead?
+  - def-con finals
 ---
 
 I felt an insatiable need to ramble about how DEF CON Finals went, so I finally forced myself to make a little blog for myself.
 
 ## A bit about me
 
-I run a team called Squid Proxy Lovers. We have been doing CTFs since 2023, although I mostly got involved with the team in 2024. Before that, I had done CTFs here and there in high school. Our general age range is around 18-21, with an estimated average of about 19, if I had to guess. I mention this mostly to point out that we are something adjacent to the "new kids on the block."
+I am one of the captains of Squid Proxy Lovers. We have been doing CTFs since 2023, although I mostly got involved with the team in 2024. Before that, I had done CTFs here and there in high school. Our general age range is around 18-21, with an estimated average of about 19, if I had to guess. I mention this mostly to point out that we are something adjacent to the "new kids on the block." 
 
-My thoughts and opinions come from that point of view. I had played DEF CON Finals and Quals, as well as other difficult and top CTFs (Google CTF, PlaidCTF, HITCON, and SECCON), before 2026. I am not totally clueless about the broader decline of CTFing and the scene around it. This blog is partly meant to give people some clarity about how DEF CON CTF looked from a player's standpoint, and whether top teams are simply throwing AI at problems and "giving up." I would rather present the details, let you draw your own conclusions, and share my own along the way.
+I played DEFCON Finals with SDCL (SuperDiceCodeLovers), I was one of the team admins/tooling leads and played both finals + quals for the entirty. Anything I say is entirely my opinon and no one else on the teams. I had played DEF CON Finals and Quals, as well as other difficult and top CTFs (Google CTF, PlaidCTF, HITCON, and SECCON), before 2026. I am not totally clueless about the broader decline of CTFing and the scene around it. This blog is partly meant to give people some clarity about how DEF CON CTF looked from a player's standpoint, and whether top teams are simply throwing AI at problems and "giving up." I would rather present the details, let you draw your own conclusions, and share my own along the way.
 
 Here is the breakdown for this blog:
 - Tooling Before the CTF
@@ -24,6 +23,7 @@ Here is the breakdown for this blog:
 - Challenges During the CTF
 - What could be better
 - Why do we CTF?
+- Are CTFs Pay2win?
 
 ## Tooling Before the CTF
 
@@ -45,11 +45,11 @@ The part of the actual CTF that I enjoyed most was building tooling on the fly. 
 
 If your tooling is sloped, you are probably going to spend hours testing it and thinking through edge cases before you can trust it. It is much easier to make new tools in this day and age than it was before, but that adds to the enjoyment. After you make a few standard tools, you need to start thinking about what will actually be useful.
 
-Some really interesting innovations were made across all teams this year. I imagine many of them will eventually see the light of day. Our team came up with quite a few useful tools during the CTF, and the overall planning and technical process was very enjoyable. Working with 10-15 people at 4 a.m. to make something cool as hell is a lot of fun.
+I speculate some really interesting innovations were made across all teams this year hopefully many of them will eventually see the light of day. Our team came up with quite a few useful tools during the CTF, and the overall planning and technical process was very enjoyable. Working with 10-15 people at 4 a.m. to make something cool as hell is a lot of fun : ) 
 
 ## Challenges During the CTF
 
-The CTF was not horrible. The challenges were generally good quality, but if we are being brutally honest, BBB did not do much to prevent the competition from becoming a bit of a slop fest.
+The CTF itself was not horrible. The challenges were generally good quality, but if we are being brutally honest, BBB did not do much to prevent the competition from becoming a bit of a slop fest.
 
 The A/D challenges were good quality on paper. Most of them were designed in a way that made it impossible to fully stop every exploit via patching, which is a good thing: it gives attackers room to keep experimenting and keeps the challenge alive. Most of the exploits were not especially difficult for AI to find, although finding them still took time, so there was a good bit of delay before all teams found all of them. Back to the Future was an exception, with what was effectively an infinite number of exploits.
 
@@ -67,9 +67,9 @@ A huge part of the problem with CTFing and challenge design is that the primary 
 
 The problem BBB has continued to perpetuate is that every challenge eventually devolves into a speed challenge: how fast can you get your A/D exploits up, how fast can you get your KoTH exploits up, and how fast can you bring up defensive patches?
 
-The solution is not to remove speed entirely, but it is untenable to pretend that humans can compete with AI on speed now. The fact that ticks happen every 3-5 minutes makes this even worse. This is not unique to DEF CON, but having such a short tick interval makes the problem especially visible. By the time a human understands a problem, AI models have often already identified it and built a working PoC, perhaps with less depth than a human, and started hill-climbing from that initial draft. Even if those early jumps are sloppy or imperfect, they still score. A human who spends 30 minutes carefully thinking through a problem loses the initial ticks to an AI slop machine that has been running since the first five minutes.
+The solution is not to remove speed entirely, but it is untenable to pretend that humans can compete with AI on speed now. The fact that ticks happen every 3-5 minutes makes this even worse. Having such a short tick interval is not not unique to DEF CON, but regardless its a problem imo. By the time a human understands a problem, AI models have often already identified it and built a working PoC, perhaps with less depth than a human, and started hill-climbing from that initial draft. Even if those early jumps are sloppy or imperfect, they still score. A human who spends 30 minutes carefully thinking through a problem loses the initial ticks to an AI slop machine that has been running since the first five minutes.
 
-If I only had, say, three ticks for an entire day on a challenge, I would be forced to put far more energy into every single tick. That would also prevent challenges from reaching a point where humans and agents cannot keep up with the rate of change. During MapleChat, no matter how quickly we worked, new exploits were introduced so rapidly that defensive patching became pointless. Most teams reached that point, and the entire scoreboard turned red and orange.
+If I only had, say, three ticks for an entire day on a challenge, I would be forced to put far more energy into every single tick. That would also prevent challenges from reaching a point where humans and agents cannot keep up with the rate of change. During MapleChat, no matter how quickly we worked, new exploits were introduced so rapidly that defensive patching became pointless. Most teams reached that point, and the entire scoreboard turned red and orange. In all fariness this is just speculatoin but I do think slowing down the overall pace of the competion could help human ingenuity help more then token maxing. 
 
 I would also like to see more ways to score the quality of a solve script rather than only the speed at which it is written. That would not remove the pressure of AI, but it would make it far less overwhelming and give careful engineering more room to matter.
 
@@ -82,3 +82,11 @@ Regardless of what people think about CTFing or the state of CTFs, I know almost
 Even if the kind of CTFing we knew becomes limited to competitions where AI is not allowed, I have to ask everyone in the community: do you still have fun? If so, what is stopping you from putting in the energy to keep this alive?
 
 For me, this DEF CON has made me more excited than ever to keep CTFing and keep SPL alive. I hope others in the community have had the same experience, and that we can keep moving toward an elegant solution that lets people have fun, showcase their skills, and stay relevant to the current world of computer science, engineering, and security.
+
+## Are CTFs Pay2win?
+
+One big question the community has been discussing is whether CTFs have become pay-to-win and whether it is now impossible to compete without AI. My opinion is mixed. For most smaller CTFs, we have sadly reached levels of pay-to-win that I have never seen before. For DEF CON Finals, however, not much has changed.
+
+Teams have always had significant financial requirements just to function, including travel, infrastructure, and housing. Our total AI spending was around $3,000-$4,000 over the course of a year, including R&D. During DEF CON itself, we spent around $1,000 on extra AI subscriptions. For context, our cloud bill was ~$3,000, as was the cost of each of the two Airbnbs we needed for the competition.
+
+Most people on our team also had a personal 20x account for either Claude or Codex, and some had both. From what I have heard, a good number of teams were simply assuming that their members already had access to an account. This is a privilege of being a mostly American/Korean team with an average age in the mid-20s, where most people have jobs and can afford these costs. Regarding DEF CON, this seems fairly standard and reasonable. Most teams are probably in a similar position, so the playing field does not seem too uneven in that regard. I do not care to speculate about what other teams spent, but having more money to spend in my opinon could have helped us perform better in KoTH, which might have been pivotal to winning. We probably did not need much more; another $1,000-$2,000 in subscriptions likley would have been enough. That is just my two cents, though. There is very much no clear consensus on this within the team in regards to if we skill issued or token issued.
