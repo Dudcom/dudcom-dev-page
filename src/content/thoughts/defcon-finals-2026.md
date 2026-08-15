@@ -43,9 +43,9 @@ Challenges that require long-term engineering and problem-solving are a good way
 
 The part of the actual CTF that I enjoyed most was building tooling on the fly. It is like a hackathon where things actually need to work, rather than just meeting a useless sales pitch.
 
-If your tooling is sloppy, you are probably going to spend hours testing it and thinking through edge cases before you can trust it. It is much easier to make new tools in this day and age than it was before, but that adds to the enjoyment. After you make a few standard tools, you need to start thinking about what will actually be useful.
+If your tooling is sloped, you are probably going to spend hours testing it and thinking through edge cases before you can trust it. It is much easier to make new tools in this day and age than it was before, but that adds to the enjoyment. After you make a few standard tools, you need to start thinking about what will actually be useful.
 
-Some really interesting innovations were made across all teams this year, and hopefully many of them will eventually see the light of day. Our team came up with quite a few useful tools during the CTF, and the overall planning and technical process was very enjoyable. Working with 10-15 people at 4 a.m. to make something cool as hell is a lot of fun.
+I imagine some really interesting innovations were made across all teams this year, and hopefully many of them will eventually see the light of day. Our team came up with quite a few useful tools during the CTF, and the overall planning and technical process was very enjoyable. Working with 10-15 people at 4 a.m. to make something cool as hell is a lot of fun.
 
 ## Challenges During the CTF
 
