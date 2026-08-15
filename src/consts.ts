@@ -9,8 +9,8 @@ export const SITE = {
   description: "Dudcom's personal website.",
   locale: "en-US",
   dir: "ltr",
-  defaultPageImage: "/static/opengraph-image.png",
-  defaultPostImage: "/static/1200x630.png",
+  defaultPageImage: "/static/dudcom-og.png",
+  defaultPostImage: "/static/dudcom-og.png",
 } as const
 
 export const NAVIGATION = [
