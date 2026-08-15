@@ -13,7 +13,7 @@ I felt an insatiable need to ramble about how DEF CON Finals went, so I finally 
 
 ## A bit about me
 
-I am one of the captains of Squid Proxy Lovers. We have been doing CTFs since 2023, although I mostly got involved with the team in 2024. Before that, I had done CTFs here and there in high school. Our general age range is around 18-21, with an estimated average of about 19, if I had to guess. I mention this mostly to point out that we are something adjacent to the "new kids on the block."
+I am one of the captains of Squid Proxy Lovers. We have been doing CTFs since 2023, although I mostly got involved with the team in 2024. Before that, I had done CTFs here and there in high school. Our general age range for members who played finals was around 16-22, with an estimated average of about 19, if I had to guess. I mention this mostly to point out that we are something adjacent to the "new kids on the block."
 
 I played DEF CON Finals with SDCL (SuperDiceCodeLovers). I was one of the team admins and tooling leads, and I played both finals and quals for the entirety. Anything I say is entirely my own opinion, and not anyone else's on the team. I had played DEF CON Finals and Quals, as well as other difficult, top-tier CTFs (Google CTF, PlaidCTF, HITCON, and SECCON), before 2026. I am not totally clueless about the broader decline of CTFing and the scene around it. This blog is partly meant to give people some clarity about how DEF CON CTF looked from a player's standpoint, and whether top teams are simply throwing AI at problems and "giving up." I would rather present the details, let you draw your own conclusions, and share my own along the way.
 
@@ -22,8 +22,9 @@ Here is the breakdown for this blog:
 - Tooling During the CTF
 - Challenges During the CTF
 - What could be better
-- Why do we CTF?
 - Are CTFs Pay to Win?
+- Why do we CTF?
+
 
 ## Tooling Before the CTF
 
@@ -37,13 +38,13 @@ Beyond that, we had perhaps 5-7 other codebases, with somewhere between 50 and 3
 
 The point of this is not really to brag. It is more to showcase how much energy and effort went into this CTF on our end. Part of what AI allows, and perhaps forces, you to do is create systems and tools much earlier. The ability to engineer systems is now limited mostly by your creativity, your knowledge of the competition, and your energy to make something.
 
-Challenges that require long-term engineering and problem-solving are a good way to adapt to this new era of CTFing. For my fellow Americans, I would point to ECTF. It is barely a CTF in the traditional sense, but it is a good example of how a long-term project can take the form of a CTF or something adjacent to one.
+Challenges that require long-term engineering and problem-solving are a good way to adapt to this new era of CTFing. For my fellow Americans, I would point to eCTF. It is barely a CTF in the traditional sense, but it is a good example of how a long-term project can take the form of a CTF or something adjacent to one.
 
 ## Tooling During the Competition
 
 The part of the actual CTF that I enjoyed most was building tooling on the fly. It is like a hackathon where things actually need to work, rather than just meeting a useless sales pitch.
 
-If your tooling is sloped, you are probably going to spend hours testing it and thinking through edge cases before you can trust it. It is much easier to make new tools in this day and age than it was before, but that adds to the enjoyment. After you make a few standard tools, you need to start thinking about what will actually be useful.
+If your tooling is slopped, you are probably going to spend hours testing it and thinking through edge cases before you can trust it. It is much easier to make new tools in this day and age than it was before, but that adds to the enjoyment. After you make a few standard tools, you need to start thinking about what will actually be useful.
 
 I imagine some really interesting innovations were made across all teams this year, and hopefully many of them will eventually see the light of day. Our team came up with quite a few useful tools during the CTF, and the overall planning and technical process was very enjoyable. Working with 10-15 people at 4 a.m. to make something cool as hell is a lot of fun.
 
@@ -75,13 +76,6 @@ I would also like to see more ways to score the quality of a solve script rather
 
 Finally, having parts of a CTF where AI is limited or not allowed is realistic. I do not see why we cannot have floor-only challenges with AI bans, or something adjacent to that. This is DEF CON Finals after all. If we are going to throw everything at players, this is the best place to do it.
 
-## Why do we CTF?
-
-Regardless of what people think about CTFing or the state of CTFs, I know almost everyone in SPL had a lot of fun. We worked ourselves to the bone during the CTF and before it. At least for me, I cannot think of a better way to have spent that time.
-
-Even if the kind of CTFing we knew becomes limited to competitions where AI is not allowed, I have to ask everyone in the community: do you still have fun? If so, what is stopping you from putting in the energy to keep this alive?
-
-For me, this DEF CON has made me more excited than ever to keep CTFing and, most of all, keep SPL alive. I hope others in the community have had the same experience, and that we can keep moving toward an elegant solution that lets people have fun, showcase their skills, and stay relevant to the current world of computer science, engineering, and security.
 
 ## Are CTFs Pay to Win?
 
@@ -90,3 +84,12 @@ One big question the community has been discussing is whether CTFs have become p
 Teams have always had significant financial requirements just to function, including travel, infrastructure, and housing. Our total AI spending was around \$3,000-\$4,000 over the course of a year, including R&D. During DEF CON itself, we spent around \$1,000 on extra AI subscriptions. For context, our cloud bill was \$3,000, as was the cost of each of the two Airbnbs we needed for the competition.
 
 Most people on our team also had a personal 20x account for either Claude or Codex, and some had both. From what I have heard, a good number of teams were simply assuming that their members already had access to an account. Admittedly, this is a privilege most teams have at DEF CON thanks to being largely American/East Asian teams with an average age in the mid-20s, where most people have jobs or internships in tech and can afford to pay for these accounts. Regarding DEF CON, this seems fairly standard and reasonable. Most teams are probably in a similar position, so the playing field does not seem too uneven in that regard.
+
+
+## Why do we CTF?
+
+Regardless of what people think about CTFing or the state of CTFs, I know almost everyone in SPL had a lot of fun. We worked ourselves to the bone during the CTF and before it. At least for me, I cannot think of a better way to have spent that time.
+
+Even if the kind of CTFing we knew becomes limited to competitions where AI is not allowed, I have to ask everyone in the community: do you still have fun? If so, what is stopping you from putting in the energy to keep this alive?
+
+For me, this DEF CON has made me more excited than ever to keep CTFing and, most of all, keep SPL alive. I hope others in the community have had the same experience, and that we can keep moving toward an elegant solution that lets people have fun, showcase their skills, and stay relevant to the current world of computer science, engineering, and security.
