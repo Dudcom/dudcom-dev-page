@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!**/*.svg"]
+    "includes": ["**", "!**/*.svg", "!docs/**", "!dist/**"]
   },
   "html": {
     "experimentalFullSupportEnabled": true,

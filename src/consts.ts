@@ -1,7 +1,6 @@
 import type { SvgComponent } from "astro/types"
-import Email from "@/assets/icons/email.svg"
 import GitHub from "@/assets/icons/github.svg"
-import Link from "@/assets/icons/link.svg"
+import LinkedIn from "@/assets/icons/linkedin.svg"
 import Twitter from "@/assets/icons/twitter.svg"
 
 export const SITE = {
@@ -25,7 +24,6 @@ export const SOCIALS: { href: string; label: string; icon: SvgComponent }[] = [
   {
     href: "https://www.linkedin.com/in/tanush-madanbhavi/",
     label: "LinkedIn",
-    icon: Link,
+    icon: LinkedIn,
   },
-  { href: "mailto:dudcom@spl.team", label: "Email", icon: Email },
 ]
