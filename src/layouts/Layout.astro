@@ -67,10 +67,10 @@ const { crumbs } = Astro.props
           const el = document.createElement("div")
           el.className = "comet"
           container.appendChild(el)
-          const angle = 10 + Math.random() * 16
-          const peak = 0.3 + Math.random() * 0.25
+          const angle = 8 + Math.random() * 10
+          const peak = 0.35 + Math.random() * 0.25
           const x0 = -14 - Math.random() * 6
-          const y0 = Math.random() * 80
+          const y0 = Math.random() * 70
           const x1 = 112 + Math.random() * 10
           const slope = Math.tan((angle * Math.PI) / 180)
           const y1 = y0 + slope * (x1 - x0) * (innerWidth / innerHeight)
@@ -88,7 +88,7 @@ const { crumbs } = Astro.props
         }
 
         const active = []
-        let nextBatch = performance.now() + 14000 + Math.random() * 8000
+        let nextBatch = performance.now() + 4000 + Math.random() * 4000
         const MIN_GAP = 9
 
         const spawnBatch = () => {
@@ -97,7 +97,7 @@ const { crumbs } = Astro.props
           for (let i = 0; i < count; i++) {
             let y = null
             for (let attempt = 0; attempt < 50; attempt++) {
-              const candidate = Math.random() * 80
+              const candidate = Math.random() * 70
               if (
                 lanes.every((lane) => Math.abs(lane - candidate) >= MIN_GAP)
               ) {
@@ -111,7 +111,7 @@ const { crumbs } = Astro.props
             comet.y0 = y
             comet.y1 =
               y +
-              Math.tan(((10 + Math.random() * 16) * Math.PI) / 180) *
+              Math.tan(((8 + Math.random() * 10) * Math.PI) / 180) *
                 (comet.x1 - comet.x0) *
                 (innerWidth / innerHeight)
             active.push(comet)
