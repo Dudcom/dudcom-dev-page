@@ -3,12 +3,11 @@ import { formatDate } from "@/lib/utils"
 import { Image } from "astro:assets"
 import { getEntries, type CollectionEntry } from "astro:content"
 
-type Props = { post: CollectionEntry<"blog" | "thoughts"> }
+type Props = { post: CollectionEntry<"blog"> }
 
 const { post } = Astro.props
 const authors = await getEntries(post.data.authors)
-const basePath = post.collection === "thoughts" ? "/thoughts" : "/blog"
-const href = post.data.redirect ?? `${basePath}/${post.id}`
+const href = post.data.redirect ?? `/blog/${post.id}`
 const external = Boolean(post.data.redirect)
 ---
 
